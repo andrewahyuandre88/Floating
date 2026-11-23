@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#17152b">
+  <meta name="description" content="ASSISTANT PRO - asisten belajar AI">
+  <title>ASSISTANT PRO</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-mark">AP</div>
+      <div class="brand-copy">
+        <h1>ASSISTANT PRO</h1>
+        <p>Asisten belajar AI online</p>
+      </div>
+      <span class="online-pill"><i></i> ONLINE</span>
+    </header>
+
+    <main>
+      <section class="hero-card">
+        <div class="hero-orb orb-one"></div><div class="hero-orb orb-two"></div>
+        <span class="eyebrow">TEMAN BELAJAR PINTAR</span>
+        <h2>Belajar lebih mudah<br><em>bersama AI.</em></h2>
+        <p>Tanyakan apa saja, pahami langkahnya, dan terus berlatih.</p>
+        <div class="target-row"><span>🎯</span><div><b>Target KKM 80%</b><small>Target belajar, bukan jaminan nilai</small></div><strong>80%</strong></div>
+      </section>
+
+      <section class="section-heading">
+        <div><span class="eyebrow dark-eyebrow">PILIH FITUR</span><h2>Mulai belajar</h2></div>
+        <button class="text-button" id="historyBtn" type="button">Riwayat</button>
+      </section>
+
+      <section class="feature-grid">
+        <button class="feature-card selected" data-mode="auto" type="button">
+          <span class="feature-icon purple">✦</span><b>Auto Jawab</b><small>Jawaban jelas & terstruktur</small><span class="arrow">›</span>
+        </button>
+        <button class="feature-card" data-mode="soal" type="button">
+          <span class="feature-icon green">▤</span><b>Kerjakan Soal Ini</b><small>Langkah dan pembahasan</small><span class="arrow">›</span>
+        </button>
+        <button class="feature-card" data-mode="kilat" type="button">
+          <span class="feature-icon orange">ϟ</span><b>Mode Kilat 10s</b><small>Jawaban lebih ringkas</small><span class="arrow">›</span>
+        </button>
+        <button class="feature-card" id="floatingBtn" type="button">
+          <span class="feature-icon blue">▣</span><b>Floating Panel</b><small>Panel mini dalam aplikasi</small><span class="arrow">›</span>
+        </button>
+      </section>
+
+      <section class="composer-card">
+        <div class="composer-title"><div><span class="eyebrow dark-eyebrow">TANYAKAN KE AI</span><h2 id="modeTitle">Auto Jawab</h2></div><span class="sparkle">✧</span></div>
+        <label class="sr-only" for="question">Tulis pertanyaan</label>
+        <textarea id="question" rows="4" maxlength="12000" placeholder="Tulis pertanyaan atau tempel soal di sini..."></textarea>
+        <div class="attachment-row">
+          <label class="upload-button" for="photoInput">＋ Tambah foto soal</label>
+          <input id="photoInput" type="file" accept="image/*" hidden>
+          <span id="fileName">Belum ada foto</span>
+        </div>
+        <img id="photoPreview" class="photo-preview" alt="Pratinjau foto soal" hidden>
+        <div class="action-row">
+          <button id="cancelBtn" class="cancel-button" type="button" disabled>■ Batal</button>
+          <button id="sendBtn" class="send-button" type="button"><span>✦</span> Kirim ke AI</button>
+        </div>
+        <p class="hint">Periksa kembali hasil AI dengan materi dan sumber tepercaya.</p>
+      </section>
+
+      <section class="answer-card" id="answerCard">
+        <div class="answer-head"><div class="answer-icon">✦</div><div><span class="eyebrow dark-eyebrow">HASIL ASISTAN</span><h2>Jawaban AI</h2></div><span id="answerStatus" class="status-chip">Siap</span></div>
+        <div id="answerText" class="answer-text">Jawaban akan muncul di sini setelah kamu mengirim pertanyaan.</div>
+        <button id="copyBtn" class="copy-button" type="button" disabled>Salin jawaban</button>
+      </section>
+
+      <section class="history-card" id="historyCard" hidden>
+        <div class="section-heading"><div><span class="eyebrow dark-eyebrow">TERSIMPAN DI PERANGKAT</span><h2>Riwayat pertanyaan</h2></div><button id="clearHistoryBtn" class="text-button" type="button">Hapus</button></div>
+        <div id="historyList" class="history-list">Belum ada riwayat.</div>
+      </section>
+    </main>
+    <footer>ASSISTANT PRO <span>•</span> Belajar, pahami, berkembang.</footer>
+  </div>
+
+  <div class="mini-panel" id="miniPanel" hidden>
+    <div class="mini-panel-head"><b>✦ ASSISTANT PRO</b><button id="closeMini" type="button" aria-label="Tutup">×</button></div>
+    <p>Panel mini aktif di dalam aplikasi.</p>
+    <button id="backToQuestion" type="button">Kembali ke pertanyaan</button>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
